@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
+	"github.com/gowdaganesh005/MySQLserver/routes"
 )
 
 func main() {
@@ -22,7 +23,8 @@ func main() {
 		AllowCredentials: false,
 		MaxAge:           300, // Maximum value not ignored by any of major browsers
 	}))
-	//v1router := chi.NewRouter()
+
+	routes.RegisterBookStoreRoutes(router)
 
 	server := http.Server{
 		Addr:    ":8080",
